@@ -8,43 +8,59 @@ public class Main{
         int d = 0;
         int n = 0;
         String neg = "";
-        if(numbers.isEmpty()){
+        if (numbers.isEmpty()) {
             return d;
         }
-        if(numbers.startsWith("//")){
-            String delimiter = Character.toString(numbers.charAt(2));
-            numbers = numbers.replace("//"+delimiter+"\n", "");
-            numbers = numbers.replace(delimiter, ",");
-            for(String s : numbers.split(",|\n")){
+        if (numbers.startsWith("//")) {
+            if(numbers.contains("[") && numbers.contains("]")) {
+                numbers = numbers.replace("//[", "");
+                String delimiter = "";
+                for (int i = 0; i < numbers.length(); i++) {
+                    if (numbers.charAt(i) != ']') {
+                        delimiter += numbers.charAt(i);
+                    } else {
+                        numbers = numbers.replace(delimiter + "]\n", "");
+                        break;
+                    }
+                }
+                numbers = numbers.replace("\n", ",");
+                numbers = numbers.replace(delimiter, ",");
+            }
+            else{
+                String delimiter = Character.toString(numbers.charAt(2));
+                numbers = numbers.replace("//"+delimiter+"\n", "");
+                numbers = numbers.replace(delimiter, ",");
+            }
+            for (String s : numbers.split(",|\n")) {
                 if (Integer.parseInt(s) < 0) {
                     n++;
                     neg += Integer.parseInt(s) + " ";
                 }
-                if(Integer.parseInt(s) < 1001) {
+                if (Integer.parseInt(s) < 1001) {
                     d += Integer.parseInt(s);
                 }
             }
             if (n > 0) {
                 throw new RuntimeException("negatives not allowed: " + neg.trim());
-            }
-            else {
+            } else {
                 return d;
             }
         }
-        for(String s : numbers.split(",|\n")){
-            if (Integer.parseInt(s) < 0) {
-                n++;
-                neg += Integer.parseInt(s) + " ";
-            }
-            if(Integer.parseInt(s) < 1001) {
-                d += Integer.parseInt(s);
-            }
-        }
-        if (n > 0) {
-            throw new RuntimeException("negatives not allowed: " + neg.trim());
-        }
         else {
-            return d;
+            for (String s : numbers.split(",|\n")) {
+                if (Integer.parseInt(s) < 0) {
+                    n++;
+                    neg += Integer.parseInt(s) + " ";
+                }
+                if (Integer.parseInt(s) < 1001) {
+                    d += Integer.parseInt(s);
+                }
+            }
+            if (n > 0) {
+                throw new RuntimeException("negatives not allowed: " + neg.trim());
+            } else {
+                return d;
+            }
         }
     }
 }

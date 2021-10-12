@@ -10,7 +10,9 @@ public class LabTest {
         forth_step_test();
         fifth_step_test();
         sixth_step_test();
+        seventh_step_test();
     }
+
     public static void first_step_test(){
         assertEquals(0, Main.Add(""));
         assertEquals(1, Main.Add("1"));
@@ -35,6 +37,9 @@ public class LabTest {
     }
     public static void sixth_step_test() {
         assertEquals(2, Main.Add("2,1001"));
+    }
+    public static void seventh_step_test(){
+        assertEquals(6, Main.Add("//[***]\n1***2***3"));
     }
 
 }
