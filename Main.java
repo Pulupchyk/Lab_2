@@ -7,14 +7,10 @@ public class Main{
     public static int Add(String numbers) {
         int d = 0;
         if(numbers.isEmpty()){
-            return d;
+            return 0;
         }
-        if(!(numbers.contains(","))){
-            return Integer.parseInt(numbers);
-        }
-        else{
-            String[] s = numbers.split(",");
-            d = Integer.parseInt(s[0]) + Integer.parseInt(s[1]);
+        for(String s : numbers.split(",")){
+            d += Integer.parseInt(s);
         }
         return d;
     }
