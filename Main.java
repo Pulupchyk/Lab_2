@@ -20,7 +20,7 @@ public class Main{
                     n++;
                     neg += Integer.parseInt(s) + " ";
                 }
-                else {
+                if(Integer.parseInt(s) < 1001) {
                     d += Integer.parseInt(s);
                 }
             }
@@ -36,7 +36,7 @@ public class Main{
                 n++;
                 neg += Integer.parseInt(s) + " ";
             }
-            else {
+            if(Integer.parseInt(s) < 1001) {
                 d += Integer.parseInt(s);
             }
         }

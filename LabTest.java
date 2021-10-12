@@ -9,6 +9,7 @@ public class LabTest {
         third_test_step();
         forth_step_test();
         fifth_step_test();
+        sixth_step_test();
     }
     public static void first_step_test(){
         assertEquals(0, Main.Add(""));
@@ -32,4 +33,8 @@ public class LabTest {
             //System.out.println(ex.getMessage());
         }
     }
+    public static void sixth_step_test() {
+        assertEquals(2, Main.Add("2,1001"));
+    }
+
 }
