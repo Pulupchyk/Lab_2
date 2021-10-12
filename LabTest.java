@@ -11,6 +11,8 @@ public class LabTest {
         fifth_step_test();
         sixth_step_test();
         seventh_step_test();
+        eighth_step_test();
+
     }
 
     public static void first_step_test(){
@@ -41,5 +43,7 @@ public class LabTest {
     public static void seventh_step_test(){
         assertEquals(6, Main.Add("//[***]\n1***2***3"));
     }
-
+    public static void eighth_step_test(){
+        assertEquals(6, Main.Add("//[*][%]\n1*2%3"));
+    }
 }

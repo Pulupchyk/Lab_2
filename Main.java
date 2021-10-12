@@ -11,10 +11,24 @@ public class Main{
         if (numbers.isEmpty()) {
             return d;
         }
-        if (numbers.startsWith("//")) {
-            if(numbers.contains("[") && numbers.contains("]")) {
+        else if (numbers.startsWith("//")) {
+            String delimiter = "";
+            if (numbers.contains("[") && numbers.contains("]") && numbers.contains("][")) {
+                numbers = numbers.replace("//[", "").replace("][", ",");
+                for (int i = 0; i < numbers.length(); i++) {
+                    if (numbers.charAt(i) != ']') {
+                        delimiter += numbers.charAt(i);
+                    } else {
+                        numbers = numbers.replace(delimiter + "]\n", "");
+                        break;
+                    }
+                }
+                String[] delimiters = delimiter.split(",");
+                numbers = numbers.replace("\n", ",");
+                numbers = numbers.replace(delimiters[0], ",").replace(delimiters[1], ",").replace("\n", ",");
+            }
+            else if (numbers.contains("[") && numbers.contains("]")) {
                 numbers = numbers.replace("//[", "");
-                String delimiter = "";
                 for (int i = 0; i < numbers.length(); i++) {
                     if (numbers.charAt(i) != ']') {
                         delimiter += numbers.charAt(i);
@@ -26,9 +40,9 @@ public class Main{
                 numbers = numbers.replace("\n", ",");
                 numbers = numbers.replace(delimiter, ",");
             }
-            else{
-                String delimiter = Character.toString(numbers.charAt(2));
-                numbers = numbers.replace("//"+delimiter+"\n", "");
+            else if (!(numbers.contains("[") && numbers.contains("]"))) {
+                delimiter = Character.toString(numbers.charAt(2));
+                numbers = numbers.replace("//" + delimiter + "\n", "");
                 numbers = numbers.replace(delimiter, ",");
             }
             for (String s : numbers.split(",|\n")) {
@@ -40,6 +54,7 @@ public class Main{
                     d += Integer.parseInt(s);
                 }
             }
+
             if (n > 0) {
                 throw new RuntimeException("negatives not allowed: " + neg.trim());
             } else {
