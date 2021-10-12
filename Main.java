@@ -9,6 +9,15 @@ public class Main{
         if(numbers.isEmpty()){
             return d;
         }
+        if(numbers.startsWith("//")){
+            String delimiter = Character.toString(numbers.charAt(2));
+            numbers = numbers.replace("//"+delimiter+"\n", "");
+            numbers = numbers.replace(delimiter, ",");
+            for(String s : numbers.split(",|\n")){
+                d += Integer.parseInt(s);
+            }
+            return d;
+        }
         for(String s : numbers.split(",|\n")){
             d += Integer.parseInt(s);
         }
