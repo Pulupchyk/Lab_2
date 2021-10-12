@@ -7,7 +7,7 @@ public class Main{
     public static int Add(String numbers) {
         int d = 0;
         if(numbers.isEmpty()){
-            return 0;
+            return d;
         }
         for(String s : numbers.split(",")){
             d += Integer.parseInt(s);
