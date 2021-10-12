@@ -12,9 +12,8 @@ public class LabTest {
         sixth_step_test();
         seventh_step_test();
         eighth_step_test();
-
+        ninth_step_test();
     }
-
     public static void first_step_test(){
         assertEquals(0, Main.Add(""));
         assertEquals(1, Main.Add("1"));
@@ -45,5 +44,8 @@ public class LabTest {
     }
     public static void eighth_step_test(){
         assertEquals(6, Main.Add("//[*][%]\n1*2%3"));
+    }
+    public static void ninth_step_test() {
+        assertEquals(15, Main.Add("//[*][%#][$%^][!@%^&]\n1*2%#3$%^4!@%^&5"));
     }
 }

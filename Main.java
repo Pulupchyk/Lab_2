@@ -25,7 +25,9 @@ public class Main{
                 }
                 String[] delimiters = delimiter.split(",");
                 numbers = numbers.replace("\n", ",");
-                numbers = numbers.replace(delimiters[0], ",").replace(delimiters[1], ",").replace("\n", ",");
+                for(int i = 0; i < delimiters.length; i++){
+                    numbers = numbers.replace(delimiters[i], ",");
+                }
             }
             else if (numbers.contains("[") && numbers.contains("]")) {
                 numbers = numbers.replace("//[", "");
