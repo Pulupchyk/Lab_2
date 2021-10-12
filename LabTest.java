@@ -6,6 +6,7 @@ public class LabTest {
     public static void test(){
         first_step_test();
         second_step_test();
+        third_test_step();
     }
     public static void first_step_test(){
         assertEquals(0, Main.Add(""));
@@ -14,5 +15,8 @@ public class LabTest {
     }
     public static void second_step_test(){
         assertEquals(28, Main.Add("1,2,3,4,5,6,7"));
+    }
+    public static void third_test_step(){
+        assertEquals(6, Main.Add("1\n2,3"));
     }
 }

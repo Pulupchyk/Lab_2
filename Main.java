@@ -9,7 +9,7 @@ public class Main{
         if(numbers.isEmpty()){
             return d;
         }
-        for(String s : numbers.split(",")){
+        for(String s : numbers.split(",|\n")){
             d += Integer.parseInt(s);
         }
         return d;
