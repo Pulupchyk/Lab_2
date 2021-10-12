@@ -6,6 +6,8 @@ public class Main{
     }
     public static int Add(String numbers) {
         int d = 0;
+        int n = 0;
+        String neg = "";
         if(numbers.isEmpty()){
             return d;
         }
@@ -14,13 +16,35 @@ public class Main{
             numbers = numbers.replace("//"+delimiter+"\n", "");
             numbers = numbers.replace(delimiter, ",");
             for(String s : numbers.split(",|\n")){
-                d += Integer.parseInt(s);
+                if (Integer.parseInt(s) < 0) {
+                    n++;
+                    neg += Integer.parseInt(s) + " ";
+                }
+                else {
+                    d += Integer.parseInt(s);
+                }
             }
-            return d;
+            if (n > 0) {
+                throw new RuntimeException("negatives not allowed: " + neg.trim());
+            }
+            else {
+                return d;
+            }
         }
         for(String s : numbers.split(",|\n")){
-            d += Integer.parseInt(s);
+            if (Integer.parseInt(s) < 0) {
+                n++;
+                neg += Integer.parseInt(s) + " ";
+            }
+            else {
+                d += Integer.parseInt(s);
+            }
         }
-        return d;
+        if (n > 0) {
+            throw new RuntimeException("negatives not allowed: " + neg.trim());
+        }
+        else {
+            return d;
+        }
     }
 }

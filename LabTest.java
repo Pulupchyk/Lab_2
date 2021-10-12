@@ -8,6 +8,7 @@ public class LabTest {
         second_step_test();
         third_test_step();
         forth_step_test();
+        fifth_step_test();
     }
     public static void first_step_test(){
         assertEquals(0, Main.Add(""));
@@ -22,5 +23,13 @@ public class LabTest {
     }
     public static void forth_step_test(){
         assertEquals(3, Main.Add("//;\n1;2"));
+    }
+    public static void fifth_step_test(){
+        try{
+            Main.Add("//*\n-1*2*-3");
+        }catch (RuntimeException ex) {
+            assertEquals("negatives not allowed: -1 -3", ex.getMessage());
+            //System.out.println(ex.getMessage());
+        }
     }
 }
