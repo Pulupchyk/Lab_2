@@ -4,8 +4,8 @@ import java.net.CacheRequest;
 
 public class Main{
     public static void main(String[] args) {
-        LabTest.test();
-        System.out.println(Add("//[*][**][***]\n1.1*2.5**3.2***4*1002**-1"));
+        //LabTest.test();
+        System.out.println(Add("//[*][**]\n1.1**2.5*-3.2**4*1002**-1"));
     }
     public static double Add(String numbers) {
         double d = 0;
@@ -26,7 +26,7 @@ public class Main{
                 }
                 String an_s = "";
                 for(int i = 0; i < s.length(); i++){
-                    if(Character.isDigit(s.charAt(i)) || s.charAt(i) == '.'){
+                    if(Character.isDigit(s.charAt(i)) || s.charAt(i) == '.' || s.charAt(i) == '-'){
                         an_s += s.charAt(i);
                     } else{
                         an_s +=',';

@@ -43,7 +43,7 @@ public class LabTest {
         assertEquals(6, Main.Add("//[***]\n1***2***3"), 6.0);
     }
     public static void eighth_step_test(){
-        assertEquals(6, Main.Add("//[*][%]\n1*2%3"), 6.0);
+        assertEquals(6, Main.Add("//[*][%]\n1*2%-3"), 6.0);
     }
     public static void ninth_step_test() {
         assertEquals(10, Main.Add("//[*][***][**]\n1.1**2.5*10002*3***4.1"), 10.7);
