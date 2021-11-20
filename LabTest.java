@@ -32,8 +32,7 @@ public class LabTest {
         try{
             Main.Add("//*\n-1*2*-3");
         }catch (RuntimeException ex) {
-            //assertEquals("negatives not allowed: -1 -3", ex.getMessage(), "negatives not allowed: -1.0 -3.0");
-            System.out.println(ex.getMessage());
+            assertEquals("negatives not allowed: -1 -3", ex.getMessage(), "negatives not allowed: -1.0 -3.0");
         }
     }
     public static void sixth_step_test() {
@@ -43,7 +42,7 @@ public class LabTest {
         assertEquals(6, Main.Add("//[***]\n1***2***3"), 6.0);
     }
     public static void eighth_step_test(){
-        assertEquals(6, Main.Add("//[*][%]\n1*2%-3"), 6.0);
+        assertEquals(6, Main.Add("//[*][%]\n1*2%3"), 6.0);
     }
     public static void ninth_step_test() {
         assertEquals(10, Main.Add("//[*][***][**]\n1.1**2.5*10002*3***4.1"), 10.7);
